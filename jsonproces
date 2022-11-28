@@ -1,0 +1,50 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ProcessJSON : MonoBehaviour
+{
+
+    public TextAsset testJSON;
+
+
+    [System.Serializable]
+
+    public class blendshapes
+    {
+        public string blendshapeName;
+
+        public float value;
+
+
+
+    }
+    [System.Serializable]
+
+    public class blendshapeslist
+    {
+
+        public blendshapes[] blendshapes;
+
+
+    }
+
+    public blendshapeslist myblendshapeslist = new blendshapeslist();
+
+
+
+
+     
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        myblendshapeslist = JsonUtility.FromJson<blendshapeslist>(testJSON.text);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
